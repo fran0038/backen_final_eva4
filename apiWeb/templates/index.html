@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "_estilos.html" %}
+    <title>Productos</title>
+</head>
+
+<body>
+    <header>
+        <header>
+            <nav class="navbar navbar-light" style="background-color: #7abdec;">
+                <form class="form-inline">
+                    <button class="btn btn-outline-success" type="button" >
+                        <a class="nav-link px-4 mt-2 fs-6 fw-normal text-white" href="{% url 'cliente' %}">Cliente</a>
+                    </button>
+                    <button class="btn btn-outline-success" type="button" >
+                        <a class="nav-link px-4 mt-2 fs-6 fw-normal text-white" href="{% url 'vendedor' %}">Vendedores</a>
+                    </button>
+                    <button class="btn btn-outline-success" type="button" >
+                        <a class="nav-link px-4 mt-2 fs-6 fw-normal text-white" href="{% url 'ventas' %}">Ventas Realizadas</a>
+                    </button>
+                </form>
+              </nav>
+        </header>
+    </header>
+    <div class="container">
+         <div >
+            
+            <table class="table table-bordered table-striped">
+                <h1>Lista de Productitos</h1>
+                <thead>
+                    <tr class="table-primary">
+                        <td>ID</td>
+                        <td>Nombre</td>
+                        <td>Stock</td>
+                        <td>Precio</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in listaProductos %}
+                    <tr>
+                        <td>{{p.id}}</td>
+                        <td>{{p.nombre}}</td>
+                        <td>{{p.stock}}</td>
+                        <td>{{p.precio}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
+</body>
+</html>

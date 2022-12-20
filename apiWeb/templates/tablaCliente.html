@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% include "_estilos.html" %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-light" style="background-color: #7abdec;">
+            <form class="form-inline">
+                <button class="btn btn-outline-success" type="button" >
+                    <a class="nav-link px-4 mt-2 fs-6 fw-normal text-white" href="{% url 'vendedor' %}">Vendedores</a>
+                </button>
+                <button class="btn btn-outline-success" type="button" >
+                    <a class="nav-link px-4 mt-2 fs-6 fw-normal text-white" href="{% url 'index' %}">Productos</a>
+                </button>
+                <button class="btn btn-outline-success" type="button" >
+                    <a class="nav-link px-4 mt-2 fs-6 fw-normal text-white" href="{% url 'ventas' %}">Ventas Realizadas</a>
+                </button>
+            </form>
+          </nav>
+    </header>
+    <div class="container">
+        <h1>Lista de Clientes</h1>
+
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr class="table-primary">
+                        <td>ID</td>
+                        <td>Nombre</td>
+                        <td>Apellido</td>
+                        <td>email</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in cliente %}
+                    <tr>
+                        <td>{{c.id}}</td>
+                        <td>{{c.nombre}}</td>
+                        <td>{{c.apellido}}</td>
+                        <td>{{c.email}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+    </div>
+</body>
+</html>
